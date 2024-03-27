@@ -1,0 +1,18 @@
+[package]
+name = "sqds-cpi"
+version = "1.0.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "sqds_cpi"
+
+
+[dependencies]
+anchor-lang = { version = "0.29.0", features = ["init-if-needed", "allow-missing-optionals"] }
+anchor-spl = { version = "0.29.0", features = ["token"] }
+bytemuck = { version = "1.14", features = ["derive"] }
+# Squads deps
+squads-multisig-program = { version = "2.0.0", features = ["cpi", "no-entrypoint"] }
+solana-program = "1.17.18"

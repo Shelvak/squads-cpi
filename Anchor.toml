@@ -1,0 +1,35 @@
+[features]
+seeds = false
+skip-lint = false
+[programs.localnet]
+sqds_cpi = "ZuE1yg15X2GkuWLLNh1gqh2y5NwYEHD11r5CWftsbEW"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "Localnet"
+wallet = "~/.config/solana/id.json"
+
+[test.validator]
+url = "https://api.devnet.solana.com"
+ticks_per_slot = 4
+slots_per_epoch = "64"
+
+# Multisig Program
+[[test.genesis]]
+address = "SQDS4ep65T869zMMBKyuUq6aD6EgTu8psMjkvj52pCf"
+program = "tests/squads.so"
+
+# MultiSig Program PDA
+[[test.validator.clone]]
+address = "BSTq9w3kZwNwpBXJEvTZz2G9ZTNyKBvoSeXMvwb4cNZr"
+
+# Multisig Config Program Treasury
+[[test.validator.clone]]
+address = "HM5y4mz3Bt9JY9mr1hkyhnvqxSH4H2u2451j7Hc2dtvK"
+
+
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
